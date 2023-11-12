@@ -1,0 +1,1 @@
+# ingush-language-spell-checking-app
