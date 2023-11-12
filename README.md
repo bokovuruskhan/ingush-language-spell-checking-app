@@ -1,5 +1,11 @@
-# Приложение для проверки орфографии текстов на ингушском языке.
+# Приложение для проверки орфографии текстов на ингушском языке
 
-Авторы:
-bokovuruskhan@gmail.com java-dev
-goygovs@gmail.com java-dev
+## Авторы
+
+1. Урусхан Боков
+   - GitHub: @bokovuruskhan
+   - Электронная почта: bokovuruskhan@gmail.com
+
+2. Саид Гойгов
+   - GitHub: @Morgxth
+   - Электронная почта: goygovs@gmail.com
