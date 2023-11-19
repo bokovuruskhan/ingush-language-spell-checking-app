@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,6 +13,6 @@ public class WordsCompareEntry {
 
     private String sourceWord;
 
-    private String targetWord;
+    private ArrayList<String> possibleWords;
 
 }

@@ -1,6 +1,6 @@
 package open.bokovuruskhan.ingushlanguagespellcheckingapp.service;
 
-import open.bokovuruskhan.ingushlanguagespellcheckingapp.database.model.Word;
+import open.bokovuruskhan.ingushlanguagespellcheckingapp.config.SpellCheckingConfig;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.dto.WordsCompareEntry;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,22 +13,17 @@ public class SpellCheckingService {
     private WordService wordService;
 
     public WordsCompareEntry check(String word) {
-        int minDistance = Integer.MAX_VALUE;
-        Word bestMatch = null;
+        WordsCompareEntry wordsCompareEntry = new WordsCompareEntry();
+        wordsCompareEntry.setSourceWord(word);
+
         for (var wordFromDatabase : wordService.getAll()) {
             int distance = LevenshteinDistance.getDefaultInstance().apply(word, wordFromDatabase.getWord());
-            if (distance < minDistance) {
-                minDistance = distance;
-                bestMatch = wordFromDatabase;
+            if (distance < SpellCheckingConfig.LEVENSHTEIN_MAX_DISTANCE) {
+                wordsCompareEntry.getPossibleWords().add(wordFromDatabase.getWord());
             }
         }
-        if (bestMatch != null) {
-            WordsCompareEntry wordsCompareEntry = new WordsCompareEntry();
-            wordsCompareEntry.setSourceWord(word);
-            wordsCompareEntry.setTargetWord(bestMatch.getWord());
-            return wordsCompareEntry;
-        }
-        return null;
+
+        return wordsCompareEntry;
     }
 
 }

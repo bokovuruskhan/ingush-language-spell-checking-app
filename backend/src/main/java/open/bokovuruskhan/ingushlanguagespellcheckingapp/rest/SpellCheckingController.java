@@ -4,7 +4,6 @@ package open.bokovuruskhan.ingushlanguagespellcheckingapp.rest;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.dto.WordsCompareEntry;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.util.RestUtils;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.service.SpellCheckingService;
-import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
