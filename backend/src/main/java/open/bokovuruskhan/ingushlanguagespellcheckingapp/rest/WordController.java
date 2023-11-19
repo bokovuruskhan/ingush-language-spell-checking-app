@@ -1,14 +1,12 @@
 package open.bokovuruskhan.ingushlanguagespellcheckingapp.rest;
 
 
-import open.bokovuruskhan.ingushlanguagespellcheckingapp.database.model.Word;
+import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.dto.WordDto;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.util.RestUtils;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.service.WordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +20,13 @@ public class WordController {
     private WordService wordService;
 
     @GetMapping(value = "/all")
-    public ResponseEntity<List<Word>> getAll() {
+    public ResponseEntity<List<WordDto>> getAll() {
         return ResponseEntity.ok(wordService.getAll());
+    }
+
+    @PostMapping
+    public ResponseEntity<WordDto> addWord(@RequestBody WordDto word) {
+        return ResponseEntity.ok(wordService.add(word));
     }
 
 
