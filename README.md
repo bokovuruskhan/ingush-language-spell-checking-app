@@ -9,3 +9,7 @@
 2. Саид Гойгов
    - GitHub: @Morgxth
    - Электронная почта: goygovs@gmail.com
+
+3. Ислам Курскиев
+   - GitHub: @ingslam
+   - Электронная почта: unpocoloco06@gmail.com
