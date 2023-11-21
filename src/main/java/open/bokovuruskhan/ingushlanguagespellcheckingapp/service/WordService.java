@@ -1,7 +1,8 @@
 package open.bokovuruskhan.ingushlanguagespellcheckingapp.service;
 
-import open.bokovuruskhan.ingushlanguagespellcheckingapp.database.model.Word;
 import open.bokovuruskhan.ingushlanguagespellcheckingapp.database.repository.WordRepository;
+import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.dto.WordDto;
+import open.bokovuruskhan.ingushlanguagespellcheckingapp.rest.util.DtoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,12 @@ public class WordService {
     @Autowired
     private WordRepository wordRepository;
 
-    public List<Word> getAll() {
-        return wordRepository.findAll();
+    public List<WordDto> getAll() {
+        return DtoHelper.convertWordList(wordRepository.findAll());
     }
 
-    public Word add(Word word) {
-        return wordRepository.save(word);
+    public WordDto add(WordDto wordDto) {
+        return DtoHelper.convertWord(wordRepository.save(DtoHelper.convertWordDto(wordDto)));
     }
 
 }
